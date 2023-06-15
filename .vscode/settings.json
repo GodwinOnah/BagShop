@@ -1,0 +1,30 @@
+{
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "1.0.0",
+                "description": "Package version 1.0.0",
+
+                "files": [
+                    "publish/**"
+                ]
+            }
+        ],
+
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "Linux",
+                "description": "SFTP folder",
+
+                "host": "46.101.86.233", "port": 22,
+                "user": "root", "password": "GreaterIam4them",
+
+                "dir": "/var/BagShop",
+                "mappings": {
+                    "publish/**": "/"
+                }
+            }
+        ]
+    }
+}
