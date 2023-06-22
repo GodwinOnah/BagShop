@@ -35,6 +35,7 @@ export class BasketService{
   }
 
 SetBasket(basket:IBasket){
+  console.log(basket.deliveryName)
     return this.http.post<IBasket>(this.baseUrl+'basket',basket).subscribe({
       next: basket =>{
         this.basketSource.next(basket);

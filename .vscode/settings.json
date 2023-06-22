@@ -2,7 +2,7 @@
     "deploy.reloaded": {
         "packages": [
             {
-                "name": "1.0.0",
+                "name": "Version 1.0.0",
                 "description": "Package version 1.0.0",
 
                 "files": [
@@ -20,7 +20,7 @@
                 "host": "46.101.86.233", "port": 22,
                 "user": "root", "password": "GreaterIam4them",
 
-                "dir": "/var/BagShop",
+                "dir": "/var/BagSkinet",
                 "mappings": {
                     "publish/**": "/"
                 }

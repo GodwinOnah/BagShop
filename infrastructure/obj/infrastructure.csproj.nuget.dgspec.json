@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/godwinonah/Documents/TheBags/BagShop-API/infrastructure/infrastructure.csproj": {}
+    "/Users/godwinonah/Documents/TheBags/infrastructure/infrastructure.csproj": {}
   },
   "projects": {
-    "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj": {
+    "/Users/godwinonah/Documents/TheBags/core/core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj",
+        "projectUniqueName": "/Users/godwinonah/Documents/TheBags/core/core.csproj",
         "projectName": "core",
-        "projectPath": "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj",
+        "projectPath": "/Users/godwinonah/Documents/TheBags/core/core.csproj",
         "packagesPath": "/Users/godwinonah/.nuget/packages/",
-        "outputPath": "/Users/godwinonah/Documents/TheBags/BagShop-API/core/obj/",
+        "outputPath": "/Users/godwinonah/Documents/TheBags/core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/godwinonah/.nuget/NuGet/NuGet.Config"
@@ -71,6 +71,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
@@ -79,14 +82,14 @@
         }
       }
     },
-    "/Users/godwinonah/Documents/TheBags/BagShop-API/infrastructure/infrastructure.csproj": {
+    "/Users/godwinonah/Documents/TheBags/infrastructure/infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/godwinonah/Documents/TheBags/BagShop-API/infrastructure/infrastructure.csproj",
+        "projectUniqueName": "/Users/godwinonah/Documents/TheBags/infrastructure/infrastructure.csproj",
         "projectName": "infrastructure",
-        "projectPath": "/Users/godwinonah/Documents/TheBags/BagShop-API/infrastructure/infrastructure.csproj",
+        "projectPath": "/Users/godwinonah/Documents/TheBags/infrastructure/infrastructure.csproj",
         "packagesPath": "/Users/godwinonah/.nuget/packages/",
-        "outputPath": "/Users/godwinonah/Documents/TheBags/BagShop-API/infrastructure/obj/",
+        "outputPath": "/Users/godwinonah/Documents/TheBags/infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/godwinonah/.nuget/NuGet/NuGet.Config"
@@ -101,8 +104,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj": {
-                "projectPath": "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj"
+              "/Users/godwinonah/Documents/TheBags/core/core.csproj": {
+                "projectPath": "/Users/godwinonah/Documents/TheBags/core/core.csproj"
               }
             }
           }
@@ -129,19 +132,7 @@
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
             "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.5, )"
             },
@@ -186,6 +177,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

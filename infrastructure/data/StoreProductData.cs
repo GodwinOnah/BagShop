@@ -15,13 +15,9 @@ namespace infrastructure.data
 {
     public class StoreProductData
     {
-        public static async Task storeProductsAsync(productContext context, ILoggerFactory ilogger){
+        public static async Task storeProductsAsync(productContext context){
             
-            try{
-
-                //This code read files, serialize them and save them to database
-
-                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
              if(!context.ProductBrand.Any()){
                     var productBrandsData=File.ReadAllText(path+@"/data/ProductsData/ProductBrands.json");
@@ -60,14 +56,6 @@ namespace infrastructure.data
                         context.Delivery.AddRange(x);
                     }
                     await context.SaveChangesAsync();
-                      }          }
-
-            catch(Exception e){
-               var logger= ilogger.CreateLogger<StoreProductData>();
-                logger.LogError(e.Message);
-
-            }
-            
+                      }          }              
         }
     }
-}

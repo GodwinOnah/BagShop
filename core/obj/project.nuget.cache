@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6b0/oBwtwgXAKSR8ES3IogoaCDDbtZfwuANwBDVqTO8hzdrttf7Hl7EsDhOUQ7umSGMk+D3llXp0Bj1KifH++w==",
+  "dgSpecHash": "GZrst/12hKv10CW8qy3+f5FgQxGntFPcqdKnk7vbsrrYYmtLrTIOWOuNIm6FobND8fMkyaq66UUbd/Fx48SKwQ==",
   "success": true,
-  "projectFilePath": "/Users/godwinonah/Documents/TheBags/BagShop-API/core/core.csproj",
+  "projectFilePath": "/Users/godwinonah/Documents/TheBags/core/core.csproj",
   "expectedPackageFiles": [
     "/Users/godwinonah/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/godwinonah/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

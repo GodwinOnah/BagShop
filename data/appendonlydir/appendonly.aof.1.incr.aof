@@ -332,3 +332,14 @@ $6
 UNLINK
 $4
 null
+*5
+$3
+SET
+$36
+d6caa618-c924-4e6b-ab29-e6f94666e3bb
+$867
+{"Id":"d6caa618-c924-4e6b-ab29-e6f94666e3bb","Items":[{"id":7,"prodName":"Gucci Leather Bag","prodPicture":"https://localhost:7135/files//bags/greenHandbag.webp","prodPrice":23.0,"quantity":1,"productBrand":"Leader","productType":"GUCCI"},{"id":11,"prodName":"Gucci Plain Bag","prodPicture":"https://localhost:7135/files//bags/blackLaptopbag.webp","prodPrice":33.0,"quantity":1,"productBrand":"Plain","productType":"GUCCI"},{"id":14,"prodName":"Hand Cotton Bag","prodPicture":"https://localhost:7135/files//bags/patchworkbag.jpeg","prodPrice":8.0,"quantity":1,"productBrand":"Plain","productType":"GUCCI"}],"clientSecret":"pi_3NISBYB7QPlKfZO41YvVZbeQ_secret_CZRjSPYduc104ddccz4kOwJre","paymentIntentId":"pi_3NISBYB7QPlKfZO41YvVZbeQ","deliveryId":4,"deliveryPrice":0.0,"deliveryName":"Visca_delivery","deliveryTime":"immediately","deliveryDescription":"Free delivery"}
+$4
+PXAT
+$13
+1689430212237
