@@ -4,9 +4,6 @@ import { IBrands} from '../prodsharemod/models/IBrands';
 import { ProdshopmodService } from './prodshopmod.service';
 import { ShopParameters } from '../prodsharemod/models/shopParameters';
 import { UserAccountService } from '../Account/account.service';
-import { AdvertsService } from '../Adverts/adverts/adverts.service';
-import { IAdverts } from '../prodsharemod/models/IAdverts';
-
 
 @Component({
   selector: 'app-shop',

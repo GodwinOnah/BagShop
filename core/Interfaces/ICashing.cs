@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 namespace infrastructure.Services
 {
     public interface ICashing

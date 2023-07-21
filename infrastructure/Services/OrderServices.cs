@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Controllers;
-using core.Entities.Identity;
 using core.Entities.Oders;
 using core.Interfaces;
 
@@ -86,6 +81,8 @@ namespace infrastructure.Services
 
         public async Task<bool> UpdateOrdersByIdAsync(OrderConfirmDetails details)
         {
+            // Console.WriteLine("\n\n\n\n\n\n\n\n"+details.Email+"\n\n\n\n\n\n\n\n");
+            //  Console.WriteLine("\n\n\n\n\n\n\n\n"+details.id+"\n\n\n\n\n\n\n\n");
             var specification = new OrderWithItemsAndSpecification(details.id,details.Email);
             var order = await  _iUnitOfWork.Repository<Order>()
             .GetProductsWithSpecification(specification);
@@ -107,9 +104,16 @@ namespace infrastructure.Services
            return true;
         }
 
-         public async Task<bool> DeleteDeliverysAsync(int id)
+        //  public async Task<bool> DeletDeliverysAsync(int id)
+        // {
+        //      _iUnitOfWork.deleteDelivery(id);
+        //     await _iUnitOfWork.complete();
+        //      return true;
+        // }
+
+        public async Task<bool> DeleteDeliverysAsync(int id)
         {
-             _iUnitOfWork.deleteDelivery(id);
+              _iUnitOfWork.deleteDelivery(id);
             await _iUnitOfWork.complete();
              return true;
         }

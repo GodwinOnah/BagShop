@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
 using System.Text.Json;
-using System.Threading.Tasks;
 using core.Controllers;
-using core.Entities;
 using core.Entities.Oders;
 using Microsoft.Extensions.Logging;
 
@@ -15,12 +9,17 @@ namespace infrastructure.data
 {
     public class StoreProductData
     {
-        public static async Task storeProductsAsync(productContext context){
+        public static async Task storeProductsAsync(productContext context, ILoggerFactory ilogger){
             
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            try{
+
+                //This code read files, serialize them and save them to database
+
+                var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
              if(!context.ProductBrand.Any()){
-                    var productBrandsData=File.ReadAllText(path+@"/data/ProductsData/ProductBrands.json");
+                    var productBrandsData=File.ReadAllText(
+                        path+@"/data/ProductsData/ProductBrands.json");
                     var brands=JsonSerializer.Deserialize<List<ProductBrand>>(productBrandsData);
                     foreach(var y in brands){
                           context.ProductBrand.AddRange(y);
@@ -56,6 +55,14 @@ namespace infrastructure.data
                         context.Delivery.AddRange(x);
                     }
                     await context.SaveChangesAsync();
-                      }          }              
+                      }          }
+
+            catch(Exception e){
+               var logger= ilogger.CreateLogger<StoreProductData>();
+                logger.LogError(e.Message);
+
+            }
+            
         }
     }
+}

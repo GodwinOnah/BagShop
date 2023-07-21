@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { RouterModule, Routes } from '@angular/router';
-import { OrdersDetailsComponent } from '../orderDetails/orders-details.component';
 import { OrderDetailsPaidComponent } from '../order-details-paid/order-details-paid.component';
 
 const routes: Routes =[

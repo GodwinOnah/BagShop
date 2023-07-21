@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Controllers;
-using core.Entities;
 using core.Entities.Interfaces;
 using core.Entities.Oders;
 using core.Interfaces;
@@ -87,12 +82,15 @@ namespace core
 
          public async Task<Order> UpdateOrderPaymentSucceeded(string paymentIntentId)
         {
-           
+            Console.WriteLine("\n\n\n\n\n\n\n\n I LOVE YOU 1 \n\n\n\n\n\n\n\n");
             var specification = new OrderPaymentSpecification(paymentIntentId);
             var order =  await _unitOfWork.Repository<Order>().GetProductsWithSpecification(specification);
             if(order == null) return null;
             order.orderStatus = OrderStatus.PaymentReceived;
-            var adminOrder = new AdminOrder(order.itemOrdered,order.Email,order.address,order.delivery);
+            // Console.WriteLine("\n\n\n\n\n\n\n\n"+order.id+"\n\n\n\n\n\n\n\n");
+             Console.WriteLine("\n\n\n\n\n\n\n\n I LOVE YOU 2 \n\n\n\n\n\n\n\n");
+            // Console.WriteLine("\n\n\n\n\n\n\n\n"+order.orderDate+"\n\n\n\n\n\n\n\n");
+            var adminOrder = new AdminOrder(order.id,order.itemOrdered,order.Email,order.address,order.delivery);
             _unitOfWork.Repository<AdminOrder>().Add(adminOrder); // saving to admin order table
             await _unitOfWork.complete();
             return order;

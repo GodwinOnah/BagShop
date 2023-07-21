@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Entities.Adverts;
-using core.Entities.DTOs;
 using core.Interfaces;
 using core.Specifications;
 

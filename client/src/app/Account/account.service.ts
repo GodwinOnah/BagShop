@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { BehaviorSubject, map, of, ReplaySubject } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { map, of, ReplaySubject } from 'rxjs';
 import { BnNgIdleService } from 'bn-ng-idle';
 import { Address, User } from '../prodsharemod/models/User';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from './Register/register.component';
 import { ForgotpasswrdComponent } from './forgot_password/forgotpasswrd/forgotpasswrd.component';
 import { LoginComponent } from './login/login.component';
+import { environment } from 'environments/environment';
 
 
 @Injectable({
@@ -93,7 +93,7 @@ openLoginDialog(){
   this.closeDialog();
   this.matdialog.open(LoginComponent,
     {height: 'auto',
-    width: '40%'});
+    width: 'auto'});
 }
 
 openRegDialog(){

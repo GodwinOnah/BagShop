@@ -6,9 +6,6 @@ import { OrdersDetailsComponent } from '../orderDetails/orders-details.component
 import { AddDeliveryComponent } from './add-delivery/add-delivery.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAccountModule } from '../Account/account.module';
-import { ProdshopmodModule } from '../products/prodshopmod.module';
-
-
 
 @NgModule({
   declarations: [

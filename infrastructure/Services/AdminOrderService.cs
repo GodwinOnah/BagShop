@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Entities.Oders;
 using core.Interfaces;
 
@@ -25,7 +21,9 @@ namespace infrastructure.Services
         {
           var specification = new AdminOrderWithItemsAndSpecification(orederStatus);
             return await _iUnitOfWork.Repository<AdminOrder>()
-            .ListAllAsync(specification); 
+            .ListAllAsync(specification);
+            
+        
         }
 
         public async Task<AdminOrder> GetAdminOrdersByIdAsync(int id)

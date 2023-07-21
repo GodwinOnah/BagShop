@@ -4,7 +4,6 @@
             {
                 "name": "Version 1.0.0",
                 "description": "Package version 1.0.0",
-
                 "files": [
                     "publish/**"
                 ]
@@ -16,15 +15,15 @@
                 "type": "sftp",
                 "name": "Linux",
                 "description": "SFTP folder",
-
                 "host": "46.101.86.233", "port": 22,
                 "user": "root", "password": "GreaterIam4them",
-
                 "dir": "/var/BagSkinet",
                 "mappings": {
                     "publish/**": "/"
                 }
             }
         ]
-    }
+    },
+    "appService.defaultWebAppToDeploy": "/subscriptions/db867025-cca3-4c0b-b741-0a2b58bfebfc/resourceGroups/rg-bagshop-ukwst-001/providers/Microsoft.Web/sites/bagshop",
+    "appService.deploySubpath": "."
 }

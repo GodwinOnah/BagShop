@@ -1,6 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using API.DTOs;
-using core.Entities.Identity;
 
 namespace API.Controllers
 {

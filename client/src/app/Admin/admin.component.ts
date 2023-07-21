@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { UserAccountService } from '../Account/account.service';
@@ -9,11 +9,9 @@ import { OrdersService } from '../orders/orders.service';
 import { IAdminOrder } from '../prodsharemod/models/IAdminOrder';
 import { IAdverts } from '../prodsharemod/models/IAdverts';
 import { IDelivery } from '../prodsharemod/models/IDelivery';
-import { IOrders } from '../prodsharemod/models/IOrders';
 import { ProductBrandComponent } from '../products/product-brand/product-brand.component';
 import { ProductTypeComponent } from '../products/product-type/product-type.component';
 import { ItemsComponent } from '../products/productItems/items/items.component';
-// import { setInterval,clearInterval} from 'timers';
 
 
 @Component({
@@ -39,15 +37,13 @@ export class AdminComponent {
     private orderservice: OrdersService,
     private toastr : ToastrService,
     public accountService : UserAccountService,
-    private advert : AdvertsService)
-    {
-
-    }
+    private advert : AdvertsService){}
 
     ngOnInit(): void {
       this.GetPaidOrders();
       this.GetAdverts();
       this.GetDelivery();
+      
     }
     
   openUploadProduct(){
@@ -98,7 +94,7 @@ export class AdminComponent {
   }
 
   confirmer(){
-      this.confirm =true;
+      this.confirm = true;
   } 
 
   GetAdverts(){
@@ -112,8 +108,7 @@ export class AdminComponent {
                 this.exit = 0; 
                 this.notice = true;
               } 
-              
-
+          
               for(let x of advert) {  
                 this.exit = x.time; 
                 setInterval(()=>{      
@@ -129,6 +124,7 @@ export class AdminComponent {
       }
 
       deleteDelivery(id:number){
+        console.log(33)
         this.orderservice.deleteDelivery(id).subscribe({
           next : yes => {
                if(yes){

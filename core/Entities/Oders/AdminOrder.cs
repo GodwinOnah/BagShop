@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace core.Entities.Oders
 {
     public class AdminOrder : ProductEntities
@@ -12,12 +7,12 @@ namespace core.Entities.Oders
 
         }
 
-       public AdminOrder(IReadOnlyList<ItemOrdered> itemOrdered,
+       public AdminOrder(int Id, IReadOnlyList<ItemOrdered> itemOrdered,
          string email, ShippingAddress address, Delivery delivery
          ) 
         {
-
-           this.Email = email;
+            this.adminOrderId = Id;
+            this.Email = email;
             this.address = address;
             this.itemOrdered = itemOrdered;
             this.delivery = delivery;
@@ -26,6 +21,7 @@ namespace core.Entities.Oders
                    
     }
 
+         public int adminOrderId {get; set;}
         public string  Email {get; set;}
         public ShippingAddress address {get; set;}
         public IReadOnlyList<ItemOrdered > itemOrdered {get; set;}

@@ -1,8 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using core.Controllers;
 using core.Entities;
 using core.Entities.Adverts;
@@ -108,5 +104,10 @@ namespace infrastructure.data
              };
              _storeProducts.Remove(delivery);
         }
+
+        
+
+
+         
     }
 }
