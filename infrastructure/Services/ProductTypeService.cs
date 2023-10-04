@@ -12,7 +12,7 @@ namespace infrastructure.Services
         }
         public async Task DeleteTypeAsync(int id)
         {
-             _iUnitOfWork.deleteProductType(id);
+            await _iUnitOfWork.deleteProductType(id);
 
              await _iUnitOfWork.complete();
         }

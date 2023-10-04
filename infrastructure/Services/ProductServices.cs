@@ -42,7 +42,7 @@ namespace infrastructure.Services
     }
      public async Task DeleteProductAsync(int id)
         {
-             _iUnitOfWork.delete(id);
+            await  _iUnitOfWork.delete(id);
 
              await _iUnitOfWork.complete();
 

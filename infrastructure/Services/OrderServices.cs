@@ -94,7 +94,6 @@ namespace infrastructure.Services
 
             }
             return true;
-
         }
 
        public async Task<bool> AddDeliverysAsync(Delivery delivery)
@@ -104,16 +103,9 @@ namespace infrastructure.Services
            return true;
         }
 
-        //  public async Task<bool> DeletDeliverysAsync(int id)
-        // {
-        //      _iUnitOfWork.deleteDelivery(id);
-        //     await _iUnitOfWork.complete();
-        //      return true;
-        // }
-
-        public async Task<bool> DeleteDeliverysAsync(int id)
+       public async Task<bool> DeleteDeliverysAsync(int id)
         {
-              _iUnitOfWork.deleteDelivery(id);
+            await    _iUnitOfWork.deleteDelivery(id);
             await _iUnitOfWork.complete();
              return true;
         }

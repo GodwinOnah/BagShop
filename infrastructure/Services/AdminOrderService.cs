@@ -42,11 +42,12 @@ namespace infrastructure.Services
 
         public async Task<bool> UpdateAdminOrdersByIdAsync(OrderConfirmDetails details)
         {
+            
             var specification = new AdminOrderWithItemsAndSpecification(details.id,details.Email);
             var adminOrder = await  _iUnitOfWork.Repository<AdminOrder>()
             .GetProductsWithSpecification(specification);
 
-            if(adminOrder !=null){
+            if(adminOrder != null){
                 adminOrder.confirmation = "confirmed";
                 _iUnitOfWork.Repository<AdminOrder>().Update(adminOrder);
               await  _iUnitOfWork.complete();

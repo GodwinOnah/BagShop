@@ -13,7 +13,7 @@ const routes: Routes = [
       {path:'Checkout', canActivate:[GuardsGuard], loadChildren: ()=>import('./Checkout/Checkout.module').then(mod=>mod.CheckoutModule),data:{breadcrumb:'Checkout'}},
       {path:'orders', canActivate:[GuardsGuard], loadChildren: ()=>import('./orders/orders.module').then(mod=>mod.OrdersModule),data:{breadcrumb:'Orders'}},
       {path:'account', loadChildren: ()=>import('./Account/account.module').then(mod=>mod.UserAccountModule),data:{breadcrumb:'User Account'}},
-      {path:'Admin', loadChildren: ()=>import('./Admin/admin.module').then(mod=>mod.AdminModule),data:{breadcrumb:'Admin Page'}},
+      {path:'Admin', loadChildren: ()=>import('./Admin/Admin.module').then(mod=>mod.AdminModule),data:{breadcrumb:'Admin Page'}},
       {path:'basket', loadChildren: ()=>import('./basket/basket.module').then(mod=>mod.BasketModule),data:{breadcrumb:'Basket'}},
       {path:'**', redirectTo: '',pathMatch:'full'}
     ];

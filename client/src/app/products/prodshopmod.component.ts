@@ -19,7 +19,7 @@ export class ProdshopmodComponent implements OnInit {
   totalPageNumber=0;
   notice : boolean = false;
   errors : string[] | null = null;
-  advertsString : string="";
+  advertsString : string="Adverts or notifications will appear here";
   sortingOptions=[
     {name:'Alphabeltical', value:'name'},
     {name:'Price: High to Low', value:'priceDecrease'},
@@ -133,7 +133,14 @@ ResetSearch(){
           if(adverts)
           if(adverts.length>0) this.notice = true;
           for(let x of adverts){
-          this.advertsString += x.advert+" | ";
+            if(adverts.length>1){
+              this.advertsString = x.advert+" | ".slice(0,-2);
+             
+            }
+            else{
+              this.advertsString = x.advert
+            }
+ 
           }
      },
        error : error => { 

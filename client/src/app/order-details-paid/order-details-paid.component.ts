@@ -37,7 +37,6 @@ export class OrderDetailsPaidComponent {
     id && this.orderService.GetAdminOrdersById(id).subscribe({
       next: paidOrder => {
         console.log(paidOrder.itemOrdered)
-        console.log(55)
         if(paidOrder.confirmation==="confirmed")
         this.confirm=true;
         this.order = paidOrder;

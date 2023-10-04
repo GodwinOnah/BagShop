@@ -24,6 +24,4 @@
             }
         ]
     },
-    "appService.defaultWebAppToDeploy": "/subscriptions/db867025-cca3-4c0b-b741-0a2b58bfebfc/resourceGroups/rg-bagshop-ukwst-001/providers/Microsoft.Web/sites/bagshop",
-    "appService.deploySubpath": "."
 }
