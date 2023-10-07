@@ -97,7 +97,7 @@ app.UseMiddleware<ErrorMiddleWare>();
 app.UseStatusCodePagesWithReExecute("/error/{0}");//use for redirecting error not handle by Error controllers
 app.UseSwaggerDocumentation(); //the cusomized middleware from swagger extention created
 // app.UseStaticFiles();//where to get static files, e.g images
- app.UseDefaultFiles();
+app.UseDefaultFiles();
 app.UseStaticFiles(
     new StaticFileOptions{
     FileProvider = new PhysicalFileProvider
@@ -105,6 +105,17 @@ app.UseStaticFiles(
     RequestPath = "/files"
 }
 );
+
+app.Use(async (context, next)=>{
+    await next();
+    if(context.Response.StatusCode == 400 &&
+    !System.IO.Path.HasExtension(context.Request.Path.Value))
+    {
+        context.Request.Path = "/index.html";
+        await next();
+    }
+});
+
 app.UseCors("AllowAccess_To_API");//cors
 app.UseHttpsRedirection();
 app.UseRouting();//for routing
