@@ -34,8 +34,6 @@ import { ProdsharemodModule } from 'app/prodsharemod/prodsharemod.module';
     FormsModule
   ],
   exports :[ProdshopmodComponent,
-    ProductDetaialsComponent
-   
-  ]
+    ProductDetaialsComponent]
 })
 export class ProdshopmodModule { }

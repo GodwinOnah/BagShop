@@ -5,6 +5,8 @@ import { ProdshopmodService } from '../../prodshopmod.service';
 import { MatDialog } from '@angular/material/dialog';
 import { IProductTypes } from 'app/prodsharemod/models/IProductTypes';
 import { IBrands } from 'app/prodsharemod/models/IBrands';
+import { IProduct } from 'app/prodsharemod/models/IProduct';
+import { environment } from 'environments/environment';
 
 
 @Component({
@@ -16,13 +18,15 @@ export class ItemsComponent {
 
 
   errors : string[] | null = null;
-  brands:IBrands[]=[];
-  types:IProductTypes[]=[];
-  prodName: string[]=[];
-  prodBrand: string[]=[];
-  prodType: string[]=[];
-  prodPictureUrl : string = "";
+  products : IProduct[]=[];
+  brands : IBrands[]=[];
+  types : IProductTypes[]=[];
   formdata : FormData = null;
+  foundProductName : string = "";
+  foundProductPicture : string = "";
+  foundProductPrice : number = 0;
+
+
 
   constructor(private formbuilder:FormBuilder,
     private productsService : ProdshopmodService,
@@ -47,42 +51,47 @@ ngOnInit(): void {
 }
 
 onSubmit(){
- 
-  this.productsService.saveProductPicture(this.formdata).subscribe({
-    next: ()=>{
-       this.toastr.success("Picture saved");
-       this.sendData();
+  for(let x of this.products){
+    if(x.prodName.toLowerCase().replaceAll(" ","") === 
+    this.productForm?.get('prodName')?.value.toLowerCase().replaceAll(" ",""))
+    { 
+      this.foundProductPrice = x.prodPrice;
+      this.foundProductPicture = x.prodPicture;
+    }  
+} 
+
+if(this.foundProductPrice.toString() ===
+          this.productForm?.get('prodPrice')?.value
+              && this.foundProductPicture.slice(environment.apiUrl.length+12) 
+                    === this.productForm?.get('prodPicture')?.value.slice(12)
+  )
+        {
+          return this.toastr.success("Sorry!!! Similar product already saved in our database");    
+        }
+        else{
+            this.productsService.saveProductPicture(this.formdata).subscribe({
+              next: ()=>{
+                this.toastr.success("Picture saved");
+                this.sendData();
     },
     error : error => { 
-      this.toastr.success("Picture not saved");
-      this.errors = error.errors  } 
-    
-  });
-   
+      this.toastr.success("Product not uploaded and picture not saved");
+      this.errors = error.errors  }    
+  });  
+}
 }
 
 sendData(){
-  const findName = this.prodName.find(x=>x.toLowerCase() === 
-  this.productForm?.get('prodName')?.value.toLowerCase());
 
-  const  findPrice = this.prodType.find(x=>x === 
-    this.productForm?.get('prodPrice')?.value);
-
-  if(findName  && findPrice)
-  {
-    this.toastr.success("Product already exist");
-  }
-  else{
-  this.productsService.UploadProduct(this.productForm.value).subscribe({
-  next: ()=>{
-    window.location.reload();
-     this.toastr.success("Product uploaded");
-  },
-  error : error => { 
-    this.toastr.success("Not uploaded");
-    this.errors = error.errors  }  
-});
-}
+          this.productsService.UploadProduct(this.productForm.value).subscribe({
+          next: ()=>{
+            this.toastr.success("Product uploaded");
+            window.location.reload();    
+          },
+          error : error => { 
+            this.toastr.success("Product upload error");
+            this.errors = error.errors  }  
+        });   
 }
 
 closeDialog(){
@@ -92,11 +101,8 @@ closeDialog(){
 GetProducts(){
   this.prodshopmodService.getProducts().subscribe({
      next: response=>{
-      for(let x of response.data){
-       this.prodName.push(x.prodName);
-       this.prodBrand.push(x.productBrand); 
-       this.prodType.push(x.productType); 
-      }},
+      this.products=response.data 
+      },
   error: error => console.log(error)
 })}
 

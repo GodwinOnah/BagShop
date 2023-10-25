@@ -1,83 +1,79 @@
-<carousel>
-    <!-- <slide>
-        <div class="container  homepage1" style="height:100% ;">
-            <div class="row">
-              <marquee direction="left" id="welcome" class="text-center col-12"><h1><strong style="color:Blue;">Welcome to Obande car world</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<strong style="color:darkred;">A Place where you can find your dream cars</strong>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-               <strong style="color:orange;">For orders, give us a call on:&nbsp;<strong style="color:	darkred;">+447751776483&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</strong></strong></h1></marquee>
-   
-               <div class="buffer col-12"></div>
-   
-               <div id="table1" class="text-center col-12">
-   
-               <table>
-                   <tr>
-                       <div>
-                           <input class="loginspc" id="user1" type="email" name="" placeholder="Email" >
-                       </div>
-                   </tr>
-               <tr>
-                   <div>
-                       <input class="loginspc" id="pass1" type="password" name="" placeholder="Password">
-                   </div>
-               </tr>
-   
-               <tr>
+<div class="row homepage1">
+
+    <div style="height: 50px; margin-top:4%;margin-bottom: auto;">
+        <marquee scrollamount="3">
+            <strong style="color:deepskyblue ;font-weight:bold">{{adverts}}</strong> 
+        </marquee>
+    </div>
+
+    <div class="col-4">
+    <carousel>
+            <slide  *ngFor="let product of products" >
+        <div>
+            <img src={{product.prodPicture}} alt="Averts" class="section1">      
+        </div>
+        <a routerLink="/products/{{product.id}}"><strong style="font-size: 20px; 
+            color:rebeccapurple; text-decoration: underline;margin-left: 20px; cursor: pointer;">
+                Grab this for <strong style="color:red">£{{product.prodPrice}}</strong> </strong></a>
+        </slide > 
+    </carousel>        
+    </div>
+
+    <div class="col-4">
+        <carousel>
+            <slide >
+                <img src="/assets/bagsale2.jpeg" alt="Second Slide"  class="section2">
+            </slide>
+            <slide>
+                <img src="/assets/bagsale1.jpeg" alt="First Slide" class="section2">
+            </slide>
+            <slide>
+                <img src="/assets/can-fit4.gif" alt="First Slide" class="section2">
+            </slide>
+            <slide>
+                <img src="/assets/bagsale3.jpeg" alt="Third Slide" class="section2">
+            </slide>
+            <slide>
+                <img src="/assets/bagsale4.jpeg" alt="Third Slide" class="section2">
+            </slide>
+        </carousel>
+        <strong style="font-size: 20px; color:rebeccapurple;margin: 10px;margin: 5px;">
+            Travel with confidence</strong>
+    </div>
+    <div class="col-4">
+        <div class="section3">
+            <p>Register with us and get a free discount in your first £100 purchance made. 
+                Our products are unique and made from the best of raw materials you can ever find.
+                <p>The collections might not contain your taste; you can give a 
+                    <a><strong style="color: deepskyblue; text-decoration: underline;cursor: pointer;">
+                        feedback here</strong></a> </p>
+                    <p>If you are not among those already enjoying the benefit of discounts, 
+                        <a (click)="openRegDialog()"><strong style="color:deepskyblue; 
+                        text-decoration: underline;cursor: pointer;"> Register here</strong>
+                        </a>
+                    </p>
                 
-                       <button type="button" class="btn btn-success" id="button1">Login</button>
-                   
-               </tr>
-               <tr>
-                   <p style="color:white;"><a href="#"><strong >Signup</strong></a>&nbsp;as new customer</p>
-                    
-               </tr>
-   
-   
-               </table>
-               
-           </div>
-   </div>
+
+        </div>
+     
+    </div>
+    <div class="text-center" style="margin-top: 50px ; font-size: 30px; height: auto;">
+        <a routerLink="/sell-product">
+            <strong style="color: deepskyblue; text-decoration: underline;cursor: pointer;">
+                 Sell your bag
+                </strong> 
+        </a>
+    </div>
+
+    <div class="text-center" style="margin-top: 50px ; font-size: 30px; height: auto;">
+        <a>
+            <strong style="color: deepskyblue; text-decoration: underline;cursor: pointer;">
+                 Meet with website owner here
+                </strong> 
+        </a>
+    </div>
+
 </div>
-    </slide> -->
-    <slide>
-        <img src="/assets/bagsale2.jpeg" alt="Second Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/bags-fit.gif" alt="First Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/can-fit2.gif" alt="First Slide" style="display:block; width:100%">
-    </slide>
-
-    <slide>
-        <img src="/assets/bagsale1.jpeg" alt="First Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/can-fit4.gif" alt="First Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/can-fit3.gif" alt="First Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/bagsale3.jpeg" alt="Third Slide" style="display:block; width:100%">
-    </slide>
-    <slide>
-        <img src="/assets/bagsale4.jpeg" alt="Third Slide" style="display:block; width:100%">
-    </slide>
-</carousel>
-
-
     
-    <!-- <div *ngFor="let product of products">
-        {{console.log(products)}}
-        <img src={{product.prodPicture}} class="card-img-top img-fluids" height="100%" width="100%" 
-                    alt={{product.prodName}}>
-
-                 <h6>{{product.prodName}}</h6>
-       
-          <h5 class="pricing">£{{product.prodPrice}}</h5>
-        </div> -->
    
-        <!-- <img src="assets/gif-images/bag1.webp" alt="Second Slide" style="display:block; width:100%">
-  
-     -->
    

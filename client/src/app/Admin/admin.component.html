@@ -7,14 +7,15 @@
     </div>
 <div class="admin" *ngIf="user.email=='godwinbillions@gmail.com'">
     <h1 class="text-center"><strong style="color: purple;font-weight:bolder;">
-        You are the Admin</strong></h1>
+        ADMIN MANAGEMENT</strong></h1>
 
         <marquee scrollamount="4">Now that you've login as the admin, you can delete any 
             product on the product page; add advert(s) to the end of the display strings on the product page; 
             add and remove brands and types; confirm or delete order, etc. Thanks.
             Thanks</marquee>
-        
-    <div  class="container mt-5 " style="margin-top: 200px;">
+    <hr style="height: 50px;">
+    <div  class="container mt-5 text-center" style="background-color:black ;" >
+    <strong style="font-weight:bolder; color: gold;"><h1>Customer completed oders</h1></strong>
     <div class="row">
         <div class="col-12">
             <table class="table table-hover" style="cursor: pointer;">
@@ -30,9 +31,13 @@
                                     
                     </tr>
                 </thead>
-                <tbody>
-                   <tr><div class="text-center"><ng-container *ngIf="adminOrders.length==0">
-                        <strong style="color: red;">No order(s) fron a customer by this time.</strong></ng-container></div></tr> 
+                <tbody >
+                   
+                   
+                    <ng-container *ngIf="adminOrders.length==0">
+                        <strong style="color: red;">No order requested.</strong>
+                    </ng-container>
+                     
                     <tr *ngFor="let order of adminOrders" routerLink="/Admin/{{order.id}}">
                         <th>{{order.adminOrderId}}</th>
                         <td>{{order.shippingAddress.firstName +" "+order.shippingAddress.middleName 
@@ -51,8 +56,11 @@
         </div>
     </div>
 </div>
+    <hr style="height: 50px;">
 
-    <div class="justify-content-center " style="padding-bottom:50px;">
+    <!-- Upload section -->
+    <div class="adminadd " style="padding-bottom:50px; margin: 10px;">
+        <strong style="color: gold ;"><h1>Add new items and properties here</h1></strong>
         <button (click)="openUploadProduct()"  class="btn btn-primary m-5">
             Upload new product here
         </button>
@@ -64,44 +72,49 @@
             Add product brand here
         </button>
     </div>
-    <div style="border:black 3px solid; border-radius: 7px; padding: 20px; margin: 10px;">
-    <div class="text-center" style="background-color: grey; max-height: 200px;width: 
-    80%;margin: 0 auto;border-radius: 20px;overflow: scroll;">
-    <div *ngIf="delNotice==false">
-        <strong style="color: white;">No delivery available</strong> 
-    </div>
-    <ng-container *ngIf="delNotice==true">
-        <h2 style="color: Blue;">List of deliveries available</h2> 
+
+    <hr style="height: 50px;">
+    
+   <!-- Delivery section -->
+    <div style=" padding-bottom: 40px; margin: 10px;">
+    <div class="text-center" style=" height: auto; background-color: black; margin: 0 auto;overflow: scroll;">
+        <h1 style="color: Gold">ADD DELIVERY</h1> 
+        <hr style="color: gold;">
+        <ng-container *ngIf="deliveries.length>0 && delNotice==true">
+            <h2 style="color: Gold">List of available deliveries</h2>
+        </ng-container>
         <div *ngFor="let item of deliveries">
             <Strong>
-                Name: <strong style="color: white;">{{item.delName}}</strong> , 
-                Time: <strong style="color: white;">{{item.delTime}}</strong>,
-                Price: <strong style="color:white;">£{{item.delPrice}}</strong>
-     <button (click)="deleteDelivery(item.id)">Delete</button> </Strong>
+                <strong style="color: white;">  Name: {{item.delName}},</strong>  
+                <strong style="color: white;"> Time: {{item.delTime}},</strong>
+                <strong style="color:white;"> Price: £{{item.delPrice}}</strong>
+     <button (click)="deleteDelivery(item.id)">Delete me</button> </Strong>
         </div> 
-    </ng-container>
+        <div class="text-center" >
+            <button (click)="openAddDelivery()"  class="btn btn-primary m-5">
+                Add new delivery
+            </button>
+            </div> 
     </div>
-    <div class="text-center" >
-    <button (click)="openAddDelivery()"  class="btn btn-primary m-5">
-        Add new delivery
-    </button>
-    </div>      
+         
     </div>
 
-    <div class="text-center" style="border:black 3px solid; border-radius: 7px; padding: 20px; margin: 10px;">
-        <h2>Current Adverts</h2>
-        <div  style="background-color: grey; max-height: 100px;width: 
+    <!-- Advert section -->
+    <div class="text-center" style="background-color:black; padding: 20px; margin: 10px;">
+        <h1 style="color: Gold">Your Adverts</h1>
+        <hr style="color: gold;">
+        <div  style=" max-height: 100px;width: 
         80%;margin: 0 auto;border-radius: 20px;overflow: scroll;">
-        <div *ngIf="notice==true">
-            <strong style="color: white;">No advert available</strong> 
-        </div>
-            <ng-container *ngIf="notice==false">
+         <ng-container *ngIf="advertsString.length>0 && delNotice==true">
+            <h2 style="color: Gold">List of availabel adverts</h2>
+        </ng-container>
             <div *ngFor="let item of advertsString">
                 <marquee  scrollAmount="2" onmouseover="this.stop();" onmouseout="this.start();">
-                <strong ><strong  style="color:gold ;">{{item.advert}}</strong><button (click)="deleteAdvert(item.id)">delete</button></strong>  
+                <strong ><strong  style="color:gold ;">{{item.advert}}
+                </strong><button (click)="deleteAdvert(item.id)">Delete me</button></strong>  
                 </marquee>
             </div> 
-        </ng-container>
+       
     </div>
         <button (click)="openAdvertDialog()"  class="btn btn-primary m-5">
             Add new adverts

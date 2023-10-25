@@ -77,7 +77,7 @@ export class RegisterComponent {
     openLoginDialog(){
       this.matDialog.open(LoginComponent,
         {height: '50%',
-      width: '50%'});
+      width: '80%'});
       } 
 
       closeDialog(){

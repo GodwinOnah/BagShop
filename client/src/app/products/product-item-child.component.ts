@@ -19,8 +19,7 @@ export class ProductItemChildComponent implements OnInit{
   constructor(private basketService: BasketService,
     public accountService:UserAccountService,
     private productsService : ProdshopmodService,
-    private toastr : ToastrService,
-    private router : Router){
+    private toastr : ToastrService){
   }
 
   ngOnInit(): void {

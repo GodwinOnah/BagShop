@@ -1,12 +1,13 @@
-<div style="background-color: lightgray; padding-bottom: 40px;border:5px solid skyblue ;">
-    <div class="align-content-left">
-        <button (click)="closeDialog()" style="margin-top: 15px;margin-left: 5px;"
-    class=" btn btn-danger">
-        x    
-    </button>
+<ng-container *ngIf="(accountService.AppUser$|async) as user">
+    <h1 class="text-center"><strong style="color: purple;font-weight:bolder;">
+        user.name sell your bag easily </strong></h1>
+        <marquee scrollamount="4">Please be aware that you have to pay, upload,
+             wait for confirmation to see your goods online. Thank you</marquee>
    
-        </div>
-        <div class="text-center" style="color:blue ;"> <h1>Product Upload Page</h1></div>
+             <hr style="height: 50px;">
+    
+    <div style="background-color: lightgray; padding-bottom: 40px;border:5px solid skyblue ;">
+    <div class="text-center" style="color:blue ;"> <h1>Product Upload Page</h1></div>
        
     <div class="d-flex justify-content-center">
     
@@ -79,3 +80,13 @@
     </div>
     </div>
     
+    <hr style="height: 50px;">
+    <div class="adminadd " style="padding-bottom:50px; margin: 10px;">
+        <strong style="color: gold ;"><h1>Make payment here</h1></strong>
+        <button class="btn btn-primary m-5">
+            Pay here
+        </button>
+    </div>
+    <hr style="height: 50px;">
+</ng-container>
+

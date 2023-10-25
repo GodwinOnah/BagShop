@@ -18,8 +18,7 @@ export class NavBarComponent {
  login: boolean = true
 
   constructor(public basketService:BasketService,
-     public accountservice:UserAccountService,
-     private matdialog: MatDialog){
+     public accountservice:UserAccountService){
 
   }
 
@@ -32,12 +31,15 @@ export class NavBarComponent {
     this.accountservice.Logout();
   }
 
+  closeDialog(){
+    this.accountservice.closeDialog();
+  }
+
   openLoginDialog(){
     this.accountservice.openLoginDialog();
   }
   openRegDialog(){
-    this.accountservice.openRegDialog();
-    
+    this.accountservice.openRegDialog();  
   }
 
 }

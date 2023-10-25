@@ -92,15 +92,15 @@ export class UserAccountService {
 openLoginDialog(){
   this.closeDialog();
   this.matdialog.open(LoginComponent,
-    {height: 'auto',
-    width: 'auto'});
+    {height: '70%',
+    width: '50%'});
 }
 
 openRegDialog(){
   this.closeDialog();
   this.matdialog.open(RegisterComponent,
     {height: '70%',
-  width: '40%'});
+  width: '50%'});
 }
 
 closeDialog(){

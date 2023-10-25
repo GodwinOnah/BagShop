@@ -4,6 +4,7 @@ import { IBrands} from '../prodsharemod/models/IBrands';
 import { ProdshopmodService } from './prodshopmod.service';
 import { ShopParameters } from '../prodsharemod/models/shopParameters';
 import { UserAccountService } from '../Account/account.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-shop',
@@ -19,7 +20,7 @@ export class ProdshopmodComponent implements OnInit {
   totalPageNumber=0;
   notice : boolean = false;
   errors : string[] | null = null;
-  advertsString : string="Adverts or notifications will appear here";
+  advertsString : string="Stay alert for Averts here";
   sortingOptions=[
     {name:'Alphabeltical', value:'name'},
     {name:'Price: High to Low', value:'priceDecrease'},
@@ -28,7 +29,9 @@ export class ProdshopmodComponent implements OnInit {
 
   constructor(
     private prodshopmodService: ProdshopmodService, 
-    public accountService:UserAccountService) 
+    public accountService:UserAccountService,
+    private toastr : ToastrService
+    ) 
     {
     this.shopParameters = prodshopmodService.getShopParams();
   }
@@ -44,7 +47,12 @@ export class ProdshopmodComponent implements OnInit {
   GetProducts(){
       this.prodshopmodService.getProducts().subscribe({
          next: response=>{ 
-          console.log(response)
+          if(response.count==0){
+            document.documentElement.style.setProperty('The-grid','null')
+          }   
+          else{
+            document.documentElement.style.setProperty('The-grid','fgrid')
+          }     
            this.products=response.data; 
            this.totalPageNumber=response.count;
           },
@@ -148,5 +156,34 @@ ResetSearch(){
        }
 
       });
+  }
+  DeleteType(id:number){
+    this.prodshopmodService.DeleteType(id).subscribe(
+        deleted=>{
+          if(deleted==true){
+           window.location.reload();
+          this.toastr.success("Type deleted successively") ;
+          }
+          else{
+            this.toastr.success("Type not deleted ") 
+          }
+        },
+       
+    );
+  }
+
+  DeleteBrand(id:number){
+    this.prodshopmodService.DeleteBrand(id).subscribe(
+        deleted=>{
+          if(deleted==true){
+           window.location.reload();
+          this.toastr.success("Brand deleted successively") ;
+          }
+
+          else{
+            this.toastr.success("Brand not deleted ") 
+          }
+        }
+    );
   }
 }

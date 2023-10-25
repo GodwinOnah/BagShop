@@ -140,7 +140,6 @@ export class AdminComponent {
       }
 
       deleteAdvert(id:number){
-
         this.advert.deleteAdverts(id).subscribe({
           next : yes => {
                if(yes){
@@ -153,7 +152,6 @@ export class AdminComponent {
               this.toastr.success("Can't get advert Ids");
             }
         });
-
       }
 
       GetDelivery(){

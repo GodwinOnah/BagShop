@@ -32,10 +32,10 @@
                   <div *ngIf="(accountService.AppUser$|async) as user" >
                   <div class="marquee2" *ngIf="totalPageNumber!=0">
                     <Marquee scrollamount="3">
-                    <strong>Hi {{user.nickName}}!!.</strong> 
+                    <strong>Hi {{user.nickName}}!!. </strong> 
                     <strong *ngIf="notice == false">
                     Thank you for viewing our items. 
-                    There are loads of these items you can ever imagined instore you might not find here. 
+                    There are loads of these other items not displayed here. 
                    Give us a call today. Your commitment is the 
                     reason we have upgraded to serve you better.
                     </strong >
@@ -47,10 +47,10 @@
                     <div class="marquee2" *ngIf="totalPageNumber==0">
                       <Marquee scrollamount="3">
                       Sorry {{user.nickName}}. We are really sorry for any incovieniences 
-                      not finding your product right now might have cost. We might be 
-                      short in supply but will still take your orders and deliver it to 
+                      not finding your product right now might have cost you. We might be 
+                      short of supply but will still take your orders and deliver it to 
                       your door step if you want. Better still, check if your spellings 
-                      are correct if you are using the search option. Thanks.</Marquee>
+                      are correct if you are using the search option or you can give us a feedback. Thanks.</Marquee>
                     </div>
                     </div>
 
@@ -107,11 +107,12 @@
         >{{item.name}}</option>
       </select>
   
-       <ng-container *ngIf="brands&&productTypes">
+       <ng-container *ngIf="brands && productTypes">
          <!-- Brands -->
         <div class="right">
         <h5>Brands</h5>
-          <div class="right-section" >   
+          <div class="right-section" > 
+            <ng-container *ngIf="(accountService.AppUser$|async) as user" >     
               <ul class="list-group">
                  <li class="list-group-item"
                     *ngFor="let item of brands"
@@ -119,14 +120,18 @@
                     [value]="item.id"
                     (click)="SelectedBrand(item.id)">
                     {{item.name}}
+                    <button *ngIf="user.email=='godwinbillions@gmail.com'" 
+                    (click)="DeleteBrand(item.id)">Delete</button>
                   </li>
               </ul>
+            </ng-container>
            </div>
           </div> 
        <!-- Types -->
        <div class="right">
        <h5>Types</h5>
-       <div class="right-section" >    
+       <div class="right-section" > 
+        <ng-container *ngIf="(accountService.AppUser$|async) as user" >   
           <ul class="list-group">
                 <li class="list-group-item"
                 *ngFor="let item of productTypes"
@@ -134,8 +139,11 @@
                 [value]="item.id"
                 (click)="SelectedType(item.id)"> 
                 {{item.name}} 
+                <button *ngIf="user.email=='godwinbillions@gmail.com'" 
+                (click)="DeleteType(item.id)">Delete</button>
               </li>
           </ul> 
+        </ng-container>
        </div>
       </div>
    </ng-container>

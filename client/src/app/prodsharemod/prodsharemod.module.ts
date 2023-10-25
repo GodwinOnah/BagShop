@@ -14,6 +14,7 @@ import { BasketSummaryComponent } from './basket-summary/basket-summary.componen
 import { RouterModule } from '@angular/router';
 
 
+
 @NgModule({
   declarations: [
     PageAnalyserComponent,
@@ -43,8 +44,7 @@ import { RouterModule } from '@angular/router';
     TextInputsComponent,
     StepperComponent,
     CdkStepperModule,
-    BasketSummaryComponent
-    
+    BasketSummaryComponent  
   ]
 })
 export class ProdsharemodModule { }

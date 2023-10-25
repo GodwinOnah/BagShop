@@ -16,6 +16,21 @@
    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
    grid-template-rows: repeat(auto-fill,minmax(300px,1fr)); 
 }
+@media (max-width: 479px) {
+    .item-container {
+        width: 70%;
+        height: 450px;
+        padding: 10px;
+        margin-left: 10px; 
+        border: 1px solid black ;
+        border-radius: 7px;
+        background-color:mintcream;
+        position: relative;
+        display:var(The-grid);
+        grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+        grid-template-rows: repeat(auto-fill,minmax(180px,1fr)); 
+     }
+    }
 
 li{list-style-type: none;
     display: inline;
@@ -42,7 +57,7 @@ li{list-style-type: none;
 .left-section{
     font-size: small; 
     margin-left: 0;
-    margin-right: 50pix;
+   
     padding: 0;
 }
 
@@ -85,16 +100,15 @@ h5{
 .search-btn{
     width: 5em;
     font-size: 0.8em;
-    margin: 5px;
-    
-  
+    margin: 5px; 
     padding: 4px ;
 }
 
 
 .noResult{
-padding: 50% 0 0 60%; 
-
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
 }
  a{
     list-style: none;

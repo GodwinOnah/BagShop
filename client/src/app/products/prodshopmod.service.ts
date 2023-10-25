@@ -9,6 +9,8 @@ import { IProduct } from '../prodsharemod/models/IProduct';
 import { IAdverts } from '../prodsharemod/models/IAdverts';
 import { environment } from 'environments/environment';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -51,7 +53,7 @@ export class ProdshopmodService {
       params = params.append('pageSize',this.shopParams.pageSize.toString())
    
       return this.http.get<IProductPagination<IProduct[]>>
-    (this.url+'prod',{params})
+    (this.url+'products',{params})
     .pipe(map(
       response =>{ 
         this.cashe.set(Object.values(this.shopParams).join('-'),response);
@@ -75,30 +77,32 @@ export class ProdshopmodService {
         .find( x => x.id == id)
       }}, {} as IProduct)
     if(Object.keys(product).length !== 0) return of(product);
-    return this.http.get<IProduct>(this.url+'prod/'+id)
+    return this.http.get<IProduct>(this.url+'products/'+id)
    }
 
    getBrands(){
     if(this.brands.length>0) return of(this.brands);
-    return this.http.get<IBrands[]>(this.url+'prod/brands').pipe(map(
+    return this.http.get<IBrands[]>(this.url+'products/brands').pipe(map(
       brands =>
+      
         this.brands=brands  
+        
       ))
    }
 
    getProductTypes(){
     if(this.types.length>0) return of(this.types);
-    return this.http.get<IProductTypes[]>(this.url+'prod/types').pipe(map(
+    return this.http.get<IProductTypes[]>(this.url+'products/types').pipe(map(
       types =>
         this.types=types 
       ))}
 
   UploadProduct(value:any){
-    return this.http.post<string>(this.url+'prod',value);   
+    return this.http.post<string>(this.url+'products',value);   
 }
 
   saveProductPicture(formData:any){
-    return this.http.post(this.url+'prod/savePicture',formData);
+    return this.http.post(this.url+'products/savePicture',formData);
 }
 
   UploadBrand(id:number,value:any){
@@ -118,7 +122,15 @@ export class ProdshopmodService {
 }
 
   DeleteProduct(id:number){
-  return this.http.delete(this.url+'prod/'+id); 
+  return this.http.delete(this.url+'products/'+id); 
+}
+
+  DeleteType(id:number){
+  return this.http.delete(this.url+'productType/'+id); 
+}
+
+  DeleteBrand(id:number){
+  return this.http.delete(this.url+'productBrand/'+id); 
 }
 
  GetAdverts(){
