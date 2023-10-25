@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9cRT9A/PpDEaQKueVfr5fylvCdBVYfHL78jhwDspw7Y=",
+  "Hash": "Qip2/OUG7qA3M6phARAniYf2l4TXXTiZGV4byQrnpWc=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/godwinonah/Documents/TheBags/API/wwwroot/.DS_Store",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/godwinonah/Documents/TheBags/API/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": ".DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/.DS_Store"
+    },
     {
       "Identity": "/Users/godwinonah/Documents/TheBags/API/wwwroot/207.js",
       "SourceId": "API",

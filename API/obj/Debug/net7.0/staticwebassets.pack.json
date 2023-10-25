@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "/Users/godwinonah/Documents/TheBags/API/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/godwinonah/Documents/TheBags/API/wwwroot/207.js",
       "PackagePath": "staticwebassets/207.js"
     },

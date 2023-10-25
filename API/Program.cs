@@ -31,16 +31,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 
-// builder.Services.AddDbContext<productContext>(
-//                 x=>x.UseNpgsql(builder.Configuration
-//                 .GetConnectionString("DefaultConnection"),
-//                 x => x.MigrationsHistoryTable("_EFMigrationsHistory")));
-
 builder.Services.AddDbContext<productContext>(
-                x=>x.UseMySql(builder.Configuration
+                x=>x.UseSqlServer(builder.Configuration
                 .GetConnectionString("DefaultConnection"),
-                new MySqlServerVersion(new Version()),
-                b => b.MigrationsAssembly("infrastructure")));
+                 options => options.EnableRetryOnFailure()
+                 ));
 
 builder.Services.AddSingleton<IConnectionMultiplexer>(c => {
                 var configuration = ConfigurationOptions
